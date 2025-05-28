@@ -1,8 +1,10 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { PaginationService } from '../../core/services/pagination.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-pagination',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss'
 })

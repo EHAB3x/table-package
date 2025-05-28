@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TableOptions } from '../../core/types/TableType';
 import { debounceTime } from 'rxjs';
+import { PaginationService } from '../../core/services/pagination.service';
 
 @Component({
   selector: 'app-custom-table',
