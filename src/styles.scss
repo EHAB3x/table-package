@@ -1,3 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @import "flowbite/src/themes/default";
+
+$max_small_mobile :393px;
+$max_mobile: 768px;
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2563EB;
+  border-radius: 0.25rem;
+  border: 2px solid #1f2937;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e3a8a;
+}
+.container {
+  padding: 0 1.25rem;
+  @media screen and (max-width: $max_mobile) {
+    padding: 0 0.75rem;
+  }
+  @media screen and (max-width: $max_small_mobile) {
+    padding: 0 0.5rem;
+  }
+}
