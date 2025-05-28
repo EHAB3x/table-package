@@ -1,60 +1,68 @@
-# TablePackage
+# Table Package
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+A reusable Angular component library for displaying, filtering, and paginating tabular data. This package provides a customizable table component with built-in pagination and search functionality.
 
-## Development server
+## Features
+- Display tabular data with dynamic columns
+- Client-side pagination
+- Search/filter functionality
+- Easy integration into any Angular project
+- Customizable styles (SCSS, Tailwind supported)
 
-To start a local development server, run:
+## Installation
 
-```bash
-ng serve
-```
+1. **Copy the Components and Services**
+   - Copy the `custom-table` and `pagination` component folders from `src/app/components/` into your Angular project's components directory.
+   - Copy the `pagination.service.ts` from `src/app/core/services/` into your project's services directory.
+   - Copy the `TableType.ts` from `src/app/core/types/` into your project's types directory.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+2. **Import the Components and Service**
+   - Register the `PaginationService` in your module's providers (if not provided in root).
+   - Import the `CustomTableComponent` and `PaginationComponent` in your module:
 
-## Code scaffolding
+   ```typescript
+   import { CustomTableComponent } from './components/custom-table/custom-table.component';
+   import { PaginationComponent } from './components/pagination/pagination.component';
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+   - Add them to your module's `declarations` and `imports` arrays as needed.
 
-```bash
-ng generate component component-name
-```
+3. **Add Styles**
+   - Make sure to include the required styles in your `angular.json` (e.g., Tailwind, SCSS).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+4. **Usage Example**
 
-```bash
-ng generate --help
-```
+   In your template:
+   ```html
+   <app-custom-table
+     [type]="'users'"
+     [tableData]="usersDataArray">
+   </app-custom-table>
+   ```
 
-## Building
+   In your component:
+   ```typescript
+   usersDataArray: TableOptions[] = [
+     { id: 1, name: 'Alice', email: 'alice@example.com' },
+     { id: 2, name: 'Bob', email: 'bob@example.com' },
+     // ...more data
+   ];
+   ```
 
-To build the project run:
+   - The table will automatically display columns based on the keys of your data objects.
+   - Pagination and search are handled internally.
 
-```bash
-ng build
-```
+5. **Customizing**
+   - You can modify the table and pagination components' SCSS files for custom styles.
+   - Adjust the `pageSize` in `PaginationService` as needed.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## API
 
-## Running unit tests
+### `<app-custom-table>` Inputs
+- `type: string` — Optional, for custom logic or styling.
+- `tableData: TableOptions[]` — The array of objects to display in the table.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-"# table-package" 
+## Development
+- Built with Angular 19+
+- Uses RxJS for reactivity
+- Supports Tailwind CSS and Flowbite for styling (optional)
