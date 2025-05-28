@@ -5,10 +5,11 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TableOptions } from '../../core/types/TableType';
 import { debounceTime } from 'rxjs';
 import { PaginationService } from '../../core/services/pagination.service';
+import { PaginationComponent } from "../pagination/pagination.component";
 
 @Component({
   selector: 'app-custom-table',
-  imports: [RouterLink, CommonModule, ReactiveFormsModule],
+  imports: [RouterLink, CommonModule, ReactiveFormsModule, PaginationComponent],
   templateUrl: './custom-table.component.html',
   styleUrl: './custom-table.component.scss'
 })
